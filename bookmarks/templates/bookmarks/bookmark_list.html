@@ -1,0 +1,13 @@
+{% for bookmark in bookmarks %}
+    <li>
+        <a href="{{bookmark.link}}" > {{ bookmark.title }} </a> &nbsp;
+    <a href= "/bookmarks/editbookmark/{{bookmark.pk}}"> [edit] </a> </br>
+        <a href = "/bookmarks/user/{{bookmark.user}}"> {{bookmark.user}} </a> </br>
+        {% if bookmark.tag.all %}
+            Tags :
+         {% for tag in bookmark.tag.all %}
+        <a href = "/bookmarks/tag/{{tag}}"> {{tag}} </a> &nbsp;
+         {% endfor %}
+         {% endif %}
+     </li>
+     {% endfor %}

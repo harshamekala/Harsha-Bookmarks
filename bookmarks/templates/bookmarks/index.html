@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for bookmark in bookmarks %}
+    <li>
+        <a href="{{bookmark.bookmark.link}}" > {{ bookmark.bookmark.title }} </a> </br>
+        <a href = "/bookmarks/user/{{bookmark.bookmark.user}}"> {{bookmark.bookmark.user}} </a> </br>
+        {% if bookmark.bookmark.tag.all %}
+            Tags :
+         {% for tag in bookmark.bookmark.tag.all %}
+        <a href = "/bookmarks/tag/{{tag}}"> {{tag}} </a> &nbsp;
+         {% endfor %}
+         {% endif %}
+     </br>
+    votes : {{ bookmark.votes}} <a href="/bookmarks/vote/{{bookmark.id}}"> [+] </a>
+     </li>
+     {% endfor %}
+
+{% endblock %}

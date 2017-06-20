@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{%  block content %}
+<h3>  Please Register</h3>
+
+<form method="post" >
+{% if error %}
+{{error}}
+{% endif %}
+    {% csrf_token %}
+    {{form.as_p}}
+<input type = "Submit", value = "Register"/>
+</form>
+{% endblock %}
